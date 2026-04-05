@@ -1,0 +1,8 @@
+{
+  "test": {
+    "pageTitle": "Test",
+    "cardTitle": "Test Page",
+    "cardDescription": "This is a test page created for TST-2.",
+    "loading": "Loading..."
+  }
+}
