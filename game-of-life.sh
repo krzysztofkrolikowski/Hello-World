@@ -14,7 +14,7 @@ idx() { echo $(( $1 * COLS + $2 )); }
 
 init_grid() {
   for (( i = 0; i < ROWS * COLS; i++ )); do
-    grid[$i]=$(( RANDOM % 4 == 0 ? 1 : 0 ))
+    grid[i]=$(( RANDOM % 4 == 0 ? 1 : 0 ))
   done
 }
 
@@ -38,14 +38,14 @@ step() {
       local n; n=$(count_neighbors $r $c)
       local alive=${grid[$i]}
       if (( alive == 1 )); then
-        next[$i]=$(( n == 2 || n == 3 ? 1 : 0 ))
+        next[i]=$(( n == 2 || n == 3 ? 1 : 0 ))
       else
-        next[$i]=$(( n == 3 ? 1 : 0 ))
+        next[i]=$(( n == 3 ? 1 : 0 ))
       fi
     done
   done
   for (( i = 0; i < ROWS * COLS; i++ )); do
-    grid[$i]=${next[$i]}
+    grid[i]=${next[i]}
   done
 }
 
@@ -61,7 +61,7 @@ render() {
     buf+="  │"
     for (( c = 0; c < COLS; c++ )); do
       local i; i=$(idx $r $c)
-      if (( grid[$i] == 1 )); then
+      if (( grid[i] == 1 )); then
         buf+="█"
       else
         buf+=" "
@@ -72,7 +72,7 @@ render() {
   buf+="  └"
   for (( c = 0; c < COLS; c++ )); do buf+="─"; done
   buf+="┘\n"
-  printf "$buf"
+  printf '%s' "$buf"
 }
 
 cleanup() {
