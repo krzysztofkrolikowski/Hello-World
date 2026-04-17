@@ -1,1 +1,23 @@
 Hello World!
+
+## 🧬 Conway's Game of Life
+
+An interactive terminal simulation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) — a zero-player cellular automaton where complex patterns emerge from simple rules.
+
+### Rules
+1. A live cell with 2 or 3 neighbours survives.
+2. A dead cell with exactly 3 neighbours becomes alive.
+3. All other cells die or stay dead.
+
+### Run it
+
+```bash
+chmod +x game-of-life.sh
+./game-of-life.sh            # default 20×40 grid
+./game-of-life.sh 30 60 0.1  # custom: rows cols delay(s)
+```
+
+Press **Ctrl-C** to stop.
+
+### Requirements
+- Bash 3.2+ (macOS / Linux — no extra dependencies)
